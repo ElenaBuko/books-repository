@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load bootstrap3 %}
+{% load bootstrap_css %}
+{% load bootstrap_javascript %}
 <head>
     <meta charset="UTF-8">
     <title>$Your personal library$</title>
 </head>
 <body>
 <header>
+    <nav class="navbar navbar-light">
+        <a href="{% url 'books:index' %}">Login</a> | <a href="{% url 'books:index' %}">Registration</a> | <a href="{% url 'books:index' %}">Home</a>
+    </nav>
 </header>
         <div class="inner-content">
             {% block content %}
