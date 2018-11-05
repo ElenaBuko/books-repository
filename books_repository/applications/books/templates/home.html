@@ -1,4 +1,8 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% block content %}
+{% load static %}
 <h1>Welcome to your personal library</h1>
+<div class="image-slideshow">
+    <img src="{% static "books/home_book_image.jpg" %}">
+</div>
 {% endblock %}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load bootstrap3 %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Personal Library{% endblock %}</title>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-light">
+        <a href="{% url 'books:home' %}">Home</a>
+        {% if user.is_authenticated %}
+        Hi,  {{ user.first_name }}!
+        <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'registration' %}">Registration</a>
+        {% endif %}
+    </nav>
+</header>
+<div class="inner-content">
+    {% block content %}
+    {% endblock content %}
+</div>
+<footer class="footer">&copy; 2018 Your personal library</footer>
+</body>
+</html>
