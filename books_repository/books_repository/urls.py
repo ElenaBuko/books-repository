@@ -15,10 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+# from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic import TemplateView
 
 import applications
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/', include('applications.books.urls', namespace='books')),
+    path('accounts/', include('applications.custom_auth.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('', TemplateView.as_view(template_name='home.html'), name='home')
 ]
+from django.contrib.auth.models import User
+# urlpatterns += staticfiles_urlpatterns()

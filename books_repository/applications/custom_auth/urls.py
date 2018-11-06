@@ -1,11 +1,10 @@
+from . import views
 from django.urls import path
 
-from applications.auth.views import LoginView, RegistrationView
-from applications.books.views import HomePageView
+from applications.custom_auth.views import CustomRegistrationView
 
-app_name = 'auth'
+app_name = 'custom_auth'
 
 urlpatterns = [
-   path(r'login/', LoginView.as_view(), name='auth'),
-   path(r'registration/', RegistrationView.as_view(), name='auth'),
+    path(r'registration/',  CustomRegistrationView.as_view(), name='registration'),
 ]

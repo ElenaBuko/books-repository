@@ -8,3 +8,7 @@ from applications.books.models import Book
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
+
+
+class ListingBooksView(TemplateView):
+    template_name = 'listing_books.html'
