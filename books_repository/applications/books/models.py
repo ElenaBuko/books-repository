@@ -8,6 +8,7 @@ class Author(models.Model):
     def __str__(self):
         return '{} {}'.format(self.first_name, self.last_name)
 
+
 class Genre(models.Model):
     type = models.CharField(max_length=120, blank=False, null=False)
 
