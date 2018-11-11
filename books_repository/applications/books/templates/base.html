@@ -3,7 +3,9 @@
 {% load bootstrap3 %}
 {% load crispy_forms_tags %}
 {% load static %}
-<head>
+<link rel='stylesheet' type='text/css' href="{% static '/books/css/bootstrap.css' %}">
+<!--<img src="{% static "my_app/example.jpg" %}" alt="My image">-->
+<head class="pb-3">
     <meta charset="UTF-8">
     <title>{% block title %}Personal Library{% endblock %}</title>
 </head>
