@@ -6,4 +6,5 @@
    <li>{{ book.name }} - {{ book.author }}</li>
 {% endfor %}
 </ul>
+<a href="{% url 'books:adding' %}">Add a book</a>
 {% endblock %}

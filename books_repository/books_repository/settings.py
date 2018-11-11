@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'applications.books',
     'applications.custom_auth',
     'bootstrap3',
+    'crispy_forms',
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -126,3 +126,4 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/books/'
 LOGOUT_REDIRECT_URL = '/books'
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

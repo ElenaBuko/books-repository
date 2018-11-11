@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -19,6 +20,8 @@ class Book(models.Model):
     created_date = models.DateTimeField(auto_now=True)
     is_read = models.BooleanField(default=False)
     genre = models.ForeignKey(Genre, models.SET_NULL, blank=True, null=True)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
     def __str__(self):
         return self.name
