@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+ Book name: {{ book.name }}<br>
+ Book author: {{ book.author }}<br>
+ Is read: {{ book.is_read }}<br>
+ Book description: {{ book.description }}<br>
+<a href="{% url 'books:listing' %}">Return to the books list</a>
+{% endblock %}

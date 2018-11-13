@@ -3,7 +3,9 @@
 <h1>Common list of books</h1>
 <ul>
 {% for book in object_list %}
-   <li>{{ book.name }} - {{ book.author }}</li>
+   <li>
+       <a href="{% url 'books:details' pk=book.id %}">{{ book.name }} - {{ book.author }}</a>
+   </li>
 {% endfor %}
 </ul>
 <a href="{% url 'books:adding' %}">Add a book</a>

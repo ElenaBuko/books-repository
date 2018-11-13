@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.views.generic import TemplateView, ListView, CreateView
+from django.views.generic import TemplateView, ListView, CreateView, DetailView
 
 from applications.books.models import Book
 
@@ -12,6 +12,14 @@ class HomePageView(TemplateView):
 class ListingBooksView(ListView):
     model = Book
     template_name = 'listing_books.html'
+
+
+class DetailBookView(DetailView):
+    model = Book
+    template_name = 'details_book.html'
+
+    def get_absolute_url(self):
+        return reverse('books:details', kwargs={'pk': self.id})
 
 
 class AddBookView(CreateView):
