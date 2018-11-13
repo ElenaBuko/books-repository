@@ -4,29 +4,45 @@
 {% load crispy_forms_tags %}
 {% load static %}
 <link rel='stylesheet' type='text/css' href="{% static '/books/css/bootstrap.css' %}">
-<!--<img src="{% static "my_app/example.jpg" %}" alt="My image">-->
-<head class="pb-3">
+<link rel='stylesheet' type='text/css' href="{% static '/books/css/custom_styles.css' %}">
+<head>
     <meta charset="UTF-8">
     <title>{% block title %}Personal Library{% endblock %}</title>
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-light">
-        <a href="{% url 'books:home' %}">Home</a>
-        {% if user.is_authenticated %}
-        Hi,  {{ user.first_name }}!
-        <a href="{% url 'logout' %}">Logout</a>
-        <a href="{% url 'books:listing' %}">Books</a>
-        {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'custom_auth:registration' %}">Registration</a>
-        {% endif %}
-    </nav>
+    <div class="panel panel-default">
+        <nav class="navbar  navbar-dark fixed-top bg-dark">
+            <div class="text-white">
+                <a href="{% url 'books:home' %}" class="text-white">Home</a>
+                {% if user.is_authenticated %}
+                {% if user.first_name %}
+                <span class="">Hi, {{ user.first_name }}!</span>
+                {% else %}
+                <span class="">Hi, User!</span>
+                {% endif %}
+                <a href="{% url 'logout' %}" class="text-white">Logout</a>
+                <a href="{% url 'books:listing' %}" class="text-white">Books</a>
+                {% else %}
+                <a href="{% url 'login' %}" class="text-white">Login</a>
+                <a href="{% url 'custom_auth:registration' %}" class="text-white">Registration</a>
+                {% endif %}
+            </div>
+        </nav>
+    </div>
 </header>
-<div class="inner-content">
+<main class="container main_content">
     {% block content %}
     {% endblock content %}
-</div>
-<footer class="footer">&copy; 2018 Your personal library</footer>
+</main>
+<footer>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-footer">
+                &copy; 2018 Your personal library
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

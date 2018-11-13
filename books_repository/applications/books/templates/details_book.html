@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
- Book name: {{ book.name }}<br>
+<h2>Book description</h2>
+<link rel="stylesheet" text="text/css" href="{% static '/books/static/css/bootstrap.min.css' %}">
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+Book name: {{ book.name }}<br>
  Book author: {{ book.author }}<br>
  Is read: {{ book.is_read }}<br>
  Book description: {{ book.description }}<br>

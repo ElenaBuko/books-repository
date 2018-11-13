@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.views.generic import TemplateView, ListView, CreateView, DetailView
+from django.views.generic import TemplateView, ListView, CreateView, DetailView, DeleteView
 
 from applications.books.models import Book
 
@@ -34,3 +34,11 @@ class AddBookView(CreateView):
     def form_valid(self, form):
         form.save(commit=True)
         return redirect(self.success_url)
+
+
+# class DeleteBookView(DeleteView):
+#     model = Book
+#     template_name = 'delete_book.html'
+#
+#     def get_success_url(self):
+#         return reverse('books:listing')
