@@ -4,9 +4,15 @@
 <h2>Book description</h2>
 <link rel="stylesheet" text="text/css" href="{% static '/books/static/css/bootstrap.min.css' %}">
 <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+<div class="books-data">
 Book name: {{ book.name }}<br>
- Book author: {{ book.author }}<br>
- Is read: {{ book.is_read }}<br>
- Book description: {{ book.description }}<br>
+Book author: {{ book.author }}<br>
+Is read: {{ book.is_read }}<br>
+Book description: {{ book.description }}<br>
+</div>
+<form method="POST" action='{% url "books:delete" pk=book.id %}'>
+    {% csrf_token %}
+    <input type="submit" value="Delete"/><br>
+</form>
 <a href="{% url 'books:listing' %}">Return to the books list</a>
 {% endblock %}

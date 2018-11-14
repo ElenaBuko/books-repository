@@ -2,11 +2,15 @@
 {% block content %}
 <h1>Common list of books</h1>
 <ul>
-{% for book in object_list %}
-   <li>
-       <a href="{% url 'books:details' pk=book.id %}">{{ book.name }} - {{ book.author }}</a>
-   </li>
-{% endfor %}
+    {% if object_list %}
+    {% for book in object_list %}
+    <li>
+        <a href="{% url 'books:details' pk=book.id %}">{{ book.name }} - {{ book.author }}</a>
+    </li>
+    {% endfor %}
+    {% else %}
+    You have not add a book yet
+    {% endif %}
 </ul>
 <a href="{% url 'books:adding' %}">Add a book</a>
 {% endblock %}

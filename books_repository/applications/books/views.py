@@ -36,9 +36,8 @@ class AddBookView(CreateView):
         return redirect(self.success_url)
 
 
-# class DeleteBookView(DeleteView):
-#     model = Book
-#     template_name = 'delete_book.html'
-#
-#     def get_success_url(self):
-#         return reverse('books:listing')
+class DeleteBookView(DeleteView):
+    model = Book
+
+    def get_success_url(self):
+        return reverse('books:listing')
