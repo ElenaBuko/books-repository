@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import TemplateView, ListView, CreateView, DetailView, DeleteView
 
-from applications.books.models import Book
+from applications.books.models import Book, Author
 
 
 class HomePageView(TemplateView):
@@ -41,3 +41,14 @@ class DeleteBookView(DeleteView):
 
     def get_success_url(self):
         return reverse('books:listing')
+
+
+class AddAuthorView(CreateView):
+    model = Author
+    template_name = 'add_author.html'
+    fields = ('first_name', 'last_name')
+    success_url = 'books:listing'
+
+    def form_valid(self, form):
+        form.save(commit=True)
+        return redirect(self.success_url)
