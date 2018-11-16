@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import TemplateView, ListView, CreateView, DetailView, DeleteView
 
-from applications.books.models import Book, Author
+from applications.books.models import Book, Author, Genre
 
 
 class HomePageView(TemplateView):
@@ -52,3 +52,15 @@ class AddAuthorView(CreateView):
     def form_valid(self, form):
         form.save(commit=True)
         return redirect(self.success_url)
+
+
+class AddGenreView(CreateView):
+    model = Genre
+    template_name = 'add_genre.html'
+    fields = ('type', )
+    success_url = 'books:listing'
+
+    def form_valid(self, form):
+        form.save(commit=True)
+        return redirect(self.success_url)
+

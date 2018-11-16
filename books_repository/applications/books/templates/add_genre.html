@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h2>Add genre</h2>
+<form method="POST" action="{{ action }}">
+    {% csrf_token %}
+    <ul>
+        {{ form|crispy }}
+    </ul>
+    <input class="btn btn-default" id="save_post" type="submit" value="Save"/>
+</form>
+{% endblock %}
